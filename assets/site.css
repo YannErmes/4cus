@@ -255,6 +255,59 @@ h3 { letter-spacing: -0.01em; }
 .sc-row .track i { display: block; height: 100%; background: var(--accent); }
 .sc-row .val { width: 34px; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
 
+/* ------------------------------------------------------------------
+   Animated product demo. A scripted replay of the real interface:
+   plan a day, run the timer, record the time, see the week add it up.
+   ------------------------------------------------------------------ */
+.demo { margin-top: 26px; }
+.demo-window { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--panel); }
+.demo-top { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+.demo-top .dlogo { display: flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 750; }
+.demo-top .dlogo i { width: 16px; height: 16px; border-radius: 5px; background: linear-gradient(140deg, var(--accent), var(--accent-2)); }
+.demo-top .dchip { font-size: 10.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; background: #fff; }
+.demo-top .dchip.on { color: #fff; background: var(--accent); border-color: var(--accent); }
+.demo-main { display: grid; grid-template-columns: 1fr 232px; }
+@media (max-width: 720px) { .demo-main { grid-template-columns: 1fr; } .demo-side { border-left: none !important; border-top: 1px solid var(--line); } }
+.demo-side { border-left: 1px solid var(--line); padding: 13px; background: var(--bg-2); }
+.demo-side h5 { margin: 0 0 9px; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+.demo-meter { height: 10px; border-radius: 5px; background: #e3e8f2; overflow: hidden; margin: 7px 0 14px; }
+.demo-meter i { display: block; height: 100%; width: 0; min-width: 4px; background: var(--accent); border-radius: 5px; transition: width .5s ease; }
+.demo-meter.done i { background: var(--green); }
+.demo-stat { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin-bottom: 5px; }
+.demo-stat b { color: var(--text); font-variant-numeric: tabular-nums; }
+.demo-bars { display: flex; align-items: flex-end; gap: 5px; height: 58px; margin-top: 10px; }
+.demo-bars i { flex: 1; background: var(--accent-soft); border-radius: 3px 3px 0 0; height: 12%; min-height: 6px; transition: height .45s ease; }
+.demo-bars i.hi { background: var(--accent); }
+.demo-foot { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-top: 1px solid var(--line); }
+.demo-cap { font-size: 13.5px; color: var(--text); font-weight: 600; flex: 1; }
+.demo-cap em { color: var(--muted); font-style: normal; font-weight: 500; }
+.demo-btn { border: 1px solid var(--line-2); background: #fff; border-radius: 8px; padding: 5px 11px; font-size: 12px; font-weight: 650; color: var(--text); cursor: pointer; }
+.demo-btn:hover { border-color: var(--accent); color: var(--accent); }
+.demo-celltime { font-variant-numeric: tabular-nums; color: var(--muted); }
+.demo-celltime.run { color: var(--amber); font-weight: 700; }
+.demo-row-new { animation: demoIn .45s ease both; }
+@keyframes demoIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.demo-pulse { animation: demoPulse 1.4s ease-in-out infinite; }
+@keyframes demoPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(59,84,232,.35); } 50% { box-shadow: 0 0 0 5px rgba(59,84,232,0); } }
+
+/* Google Calendar band */
+.band { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 34px; box-shadow: var(--shadow); }
+.band h3 { margin: 0 0 10px; font-size: 24px; font-weight: 800; letter-spacing: -0.015em; }
+.band p { color: var(--muted); margin: 0 0 10px; }
+.band ul { margin: 14px 0 0; padding-left: 20px; color: var(--muted); }
+.band li { margin-bottom: 7px; }
+.band li b { color: var(--text); }
+.gcal { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--bg-2); }
+.gcal .gh { display: flex; align-items: center; gap: 8px; padding: 10px 13px; border-bottom: 1px solid var(--line); background: #fff; font-size: 12.5px; font-weight: 700; }
+.gcal .gh i { width: 16px; height: 16px; border-radius: 4px; background: conic-gradient(#4285f4 0 25%, #34a853 0 50%, #fbbc04 0 75%, #ea4335 0); }
+.gcal .ge { display: flex; align-items: center; gap: 9px; padding: 9px 13px; border-bottom: 1px solid var(--line); font-size: 12.5px; background: #fff; }
+.gcal .ge:last-child { border-bottom: none; }
+.gcal .ge .bar { width: 3px; align-self: stretch; border-radius: 2px; background: var(--accent); }
+.gcal .ge b { font-weight: 650; }
+.gcal .ge span { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+.gcal .ge.new { animation: demoIn .5s ease both; }
+@media (max-width: 900px) { .band { grid-template-columns: 1fr; gap: 24px; padding: 26px; } }
+
 /* customisable-table comparison */
 .cmp { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .cmp th, .cmp td { text-align: left; padding: 15px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }

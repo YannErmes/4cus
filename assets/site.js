@@ -1,7 +1,7 @@
 // Single place to change the deployed app URL / repo coordinates.
 window.S4CUS = {
-  // TODO: point this at the Vercel deployment of the Flutter web app.
-  appUrl: 'https://timetracker.vercel.app',
+  // The Flutter web app deployment every "Open the app" button points at.
+  appUrl: 'https://trakerweb.vercel.app/',
   repo: 'YannErmes/timetraker',
   releasesApi: 'https://api.github.com/repos/YannErmes/timetraker/releases?per_page=50',
 };
@@ -343,6 +343,178 @@ window.S4CUS = {
     });
   }
 
+  // ------------------------------------------------------------------
+  // Scripted demo of the interface. Frames are painted in order on a
+  // timer so the whole "plan -> run -> record -> add up" story plays in
+  // about ten seconds. Honours prefers-reduced-motion by showing the
+  // final frame and stopping.
+  // ------------------------------------------------------------------
+  var DEMO_COPY = {
+    en: {
+      chips: ['Weekly', 'Daily', 'Monthly'],
+      tasks: ['Deep work', 'Gym', 'Client call'],
+      days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      caps: [
+        'You add a routine with a time <em>— 2 h of deep work.</em>',
+        'You put it on Monday <em>— that is your plan.</em>',
+        'You start the timer <em>— right in the cell.</em>',
+        'You finish <em>— status becomes done.</em>',
+        'The day records the real time <em>— 45 min actually spent.</em>',
+        'The week adds it up <em>— 53% becomes 68%.</em>',
+        'Less planning, more doing.'
+      ],
+      side: { day: 'Monday', planned: 'Planned', done: 'Done', pct: 'Done this week', bars: 'Last 5 weeks' }
+    },
+    fr: {
+      chips: ['Hebdo', 'Quotidien', 'Mensuel'],
+      tasks: ['Travail de fond', 'Sport', 'Appel client'],
+      days: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'],
+      caps: [
+        'Vous ajoutez une routine avec une durée <em>— 2 h de travail de fond.</em>',
+        'Vous la placez sur lundi <em>— c\'est votre plan.</em>',
+        'Vous lancez le minuteur <em>— directement dans la case.</em>',
+        'Vous terminez <em>— le statut passe à fait.</em>',
+        'La journée enregistre le temps réel <em>— 45 min réellement passées.</em>',
+        'La semaine additionne <em>— 53% devient 68%.</em>',
+        'Moins de planification, plus d\'action.'
+      ],
+      side: { day: 'Lundi', planned: 'Prévu', done: 'Fait', pct: 'Fait cette semaine', bars: '5 dernières semaines' }
+    }
+  };
+
+  function mountDemo() {
+    var host = document.querySelector('[data-demo]');
+    if (!host) return;
+    var c = (document.documentElement.lang || 'en').indexOf('fr') === 0 ? DEMO_COPY.fr : DEMO_COPY.en;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    host.innerHTML =
+      '<div class="demo-window">' +
+        '<div class="demo-top">' +
+          '<span class="dlogo"><i></i>4cus</span>' +
+          '<span class="dchip on">' + esc(c.chips[0]) + '</span>' +
+          '<span class="dchip">' + esc(c.chips[1]) + '</span>' +
+          '<span class="dchip">' + esc(c.chips[2]) + '</span>' +
+        '</div>' +
+        '<div class="demo-main">' +
+          '<div class="demo-grid"></div>' +
+          '<aside class="demo-side">' +
+            '<h5>' + esc(c.side.day) + '</h5>' +
+            '<div class="demo-stat"><span>' + esc(c.side.planned) + '</span><b data-d="plan">0h</b></div>' +
+            '<div class="demo-meter" data-d="meterwrap"><i data-d="meter"></i></div>' +
+            '<div class="demo-stat"><span>' + esc(c.side.done) + '</span><b data-d="pct">53%</b></div>' +
+            '<h5 style="margin-top:14px">' + esc(c.side.bars) + '</h5>' +
+            '<div class="demo-bars"><i></i><i></i><i></i><i></i><i class="hi"></i></div>' +
+          '</aside>' +
+        '</div>' +
+        '<div class="demo-foot">' +
+          '<span class="demo-cap" data-d="cap"></span>' +
+          '<button class="demo-btn" type="button" data-d="toggle"></button>' +
+        '</div>' +
+      '</div>';
+
+    var grid = host.querySelector('.demo-grid');
+    var cap = host.querySelector('[data-d="cap"]');
+    var toggle = host.querySelector('[data-d="toggle"]');
+    var meter = host.querySelector('[data-d="meter"]');
+    var meterWrap = host.querySelector('[data-d="meterwrap"]');
+    var planV = host.querySelector('[data-d="plan"]');
+    var pctV = host.querySelector('[data-d="pct"]');
+    var bars = host.querySelectorAll('.demo-bars i');
+
+    // Build the mini week grid: one target cell we animate through states.
+    var tbl = '<table class="sc-week"><thead><tr><th></th>';
+    c.days.forEach(function (d) { tbl += '<th>' + esc(d) + '</th>'; });
+    tbl += '</tr></thead><tbody>';
+    c.tasks.forEach(function (t, r) {
+      tbl += '<tr data-r="' + r + '"><td class="name">' + esc(t) + '</td>';
+      for (var dcol = 0; dcol < c.days.length; dcol++) {
+        var pre = (r === 0 && dcol === 0) ? ' data-target="1"' : '';
+        tbl += '<td class="c"' + pre + '><span class="t">—</span></td>';
+      }
+      tbl += '</tr>';
+    });
+    tbl += '</tbody></table>';
+    grid.innerHTML = tbl;
+
+    var target = grid.querySelector('[data-target]');
+    var otherCells = grid.querySelectorAll('td.c:not([data-target])');
+
+    function setTarget(html) { target.innerHTML = html; }
+    function setOthers() {
+      // A couple of neighbouring cells already carry data, so the grid looks
+      // lived-in rather than empty.
+      var k = 0;
+      otherCells.forEach(function (td) {
+        if (k % 3 === 0) td.innerHTML = '<span class="pill p-done">' + esc(c.side.done.toLowerCase()) + '</span>';
+        else if (k % 3 === 1) td.innerHTML = '<span class="t">45m</span>';
+        k++;
+      });
+    }
+
+    var frames = [
+      function () { setTarget('<span class="t">2 h</span>'); setOthers(); planV.textContent = '2h'; cap.innerHTML = c.caps[0]; },
+      function () { setTarget('<span class="pill p-none">' + esc(c.side.planned.toLowerCase()) + '</span>'); meter.style.width = '12%'; planV.textContent = '2h'; cap.innerHTML = c.caps[1]; },
+      function () { setTarget(pill('prog', c.chips[0] === 'Weekly' ? 'in progress' : 'en cours') + ' <span class="demo-celltime run" data-d="t">0:00</span>'); cap.innerHTML = c.caps[2]; },
+      function () { var t = host.querySelector('[data-d="t"]'); if (t) t.textContent = '0:45'; meter.style.width = '38%'; cap.innerHTML = c.caps[3]; },
+      function () { setTarget(pill('done', c.side.done.toLowerCase()) + ' <span class="demo-celltime">0:45</span>'); meter.style.width = '38%'; meterWrap.classList.add('done'); cap.innerHTML = c.caps[4]; },
+      function () { pctV.textContent = '68%'; meter.style.width = '68%'; [22, 34, 41, 55, 68].forEach(function (h, i) { bars[i].style.height = h + '%'; }); cap.innerHTML = c.caps[5]; },
+      function () { cap.innerHTML = c.caps[6]; }
+    ];
+
+    var idx = -1;
+    var timer = null;
+    var playing = false;
+
+    function paint(i) { frames[Math.max(0, Math.min(frames.length - 1, i))](); }
+    function tick() {
+      idx = (idx + 1) % frames.length;
+      paint(idx);
+    }
+    function play() {
+      if (playing || reduced) return;
+      playing = true;
+      toggle.textContent = '❚❚ Pause';
+      timer = setInterval(tick, 1500);
+    }
+    function pause() {
+      playing = false;
+      toggle.textContent = '▶ Replay';
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    toggle.addEventListener('click', function () {
+      if (playing) { pause(); return; }
+      idx = -1;
+      meter.style.width = '0%';
+      meterWrap.classList.remove('done');
+      pctV.textContent = '53%';
+      [10, 22, 34, 41, 55].forEach(function (h, i) { bars[i].style.height = h + '%'; });
+      play();
+    });
+
+    if (reduced) {
+      // Static final state: the story is still legible, just not animated.
+      idx = 0;
+      for (var f = 0; f < frames.length; f++) paint(f);
+      toggle.textContent = '▶ Replay';
+      toggle.addEventListener('click', function () { idx = -1; play(); });
+    } else {
+      paint(0);
+      toggle.textContent = '❚❚ Pause';
+      // Start once the section is actually on screen.
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { play(); io.disconnect(); } });
+        }, { threshold: 0.35 });
+        io.observe(host);
+      } else {
+        play();
+      }
+      // Pause when scrolled away so it is not burning cycles off-screen.
+      document.addEventListener('visibilitychange', function () { if (document.hidden) pause(); });
+    }
+  }
+
   function boot() {
     var rel = document.querySelector('[data-releases]');
     if (rel) render(rel, { limit: parseInt(rel.getAttribute('data-releases'), 10) || 50 });
@@ -370,6 +542,7 @@ window.S4CUS = {
     });
 
     mountScreens();
+    mountDemo();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
