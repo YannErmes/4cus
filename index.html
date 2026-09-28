@@ -3,14 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>4cus — your whole week in one grid</title>
-<meta name="description" content="4cus is a spreadsheet-shaped routine tracker: place a task on the days it happens, mark its status, give it a duration, and see planned vs actual time for every day. Free, no password. Web, Android, iOS and Windows.">
+<title>4cus — one customisable table for your habits, meetings, schedule and tasks</title>
+<meta name="description" content="4cus is a fully customisable table where you place habits, meetings, routines and tasks on the days you do them — with status, time and notes — then shows you planned vs actual time. Free, no password. An alternative to Todoist, TickTick, Things 3, OmniFocus, Asana, Microsoft To Do, Any.do, Google Tasks and Apple Reminders.">
+<meta name="keywords" content="todoist alternative, ticktick alternative, things 3 alternative, omnifocus alternative, asana alternative, habit tracker, meeting scheduler, weekly planner, task management, time tracker, routine planner, customisable spreadsheet, todo app, product tracker, study planner">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://4cus.vercel.app/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="4cus — your whole week in one grid">
-<meta property="og:description" content="Google Calendar tells you when. A to-do list tells you what. 4cus puts both in one grid — and shows you where the hours actually went.">
+<meta property="og:title" content="4cus — one customisable table for your habits, meetings, schedule and tasks">
+<meta property="og:description" content="Habits, meetings, routines and tasks in one table you control — with status, time and notes, and a clear picture of where your week actually went. Free, no password, four platforms.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234F6BFF'/><text x='16' y='23' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>4</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "4cus",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web, Android, iOS, Windows",
+  "description": "A fully customisable table for habit tracking, meeting schedules and task management, with planned vs actual time tracking and recurrence-aware reminders.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "featureList": [
+    "Fully customisable table (status, duration, schedule, notes, tags, dates, timers)",
+    "Habit tracking with a monthly and weekly overview",
+    "Meeting and appointment scheduling with times",
+    "Task management with statuses, filters and search",
+    "Planned vs actual time analytics",
+    "Reminders before the next occurrence",
+    "Web, Android, iOS and Windows"
+  ],
+  "keywords": "todoist, ticktick, things 3, omnifocus, asana, microsoft to do, any.do, google tasks, apple reminders, habit tracker, meeting scheduler, weekly planner, time tracker"
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233b54e8'/><text x='16' y='23' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>4</text></svg>">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -19,10 +42,11 @@
   <div class="wrap">
     <a class="brand" href="index.html"><span class="mark">4</span> 4cus</a>
     <nav>
-      <a href="#problem">Why</a>
-      <a href="#how">How it works</a>
-      <a href="#features">Features</a>
-      <a href="#platforms">Downloads</a>
+      <a href="#why">Why</a>
+      <a href="#uses">What it's for</a>
+      <a href="#custom">Customise</a>
+      <a href="#views">Screens</a>
+      <a href="downloads.html">Downloads</a>
       <a href="#faq">FAQ</a>
       <span class="lang">
         <a class="active" href="index.html">EN</a>
@@ -35,41 +59,41 @@
 
 <section class="hero">
   <div class="wrap">
-    <h1>Your whole week, in <em>one grid</em>.</h1>
+    <h1>One table. Your habits, meetings and tasks — <em>on the days you do them</em>.</h1>
     <p class="lead">
-      Google Calendar tells you <em>when</em>. A to-do list tells you <em>what</em>.
-      4cus puts both in one grid — and then shows you where the hours actually went.
-      Place a routine on the days it happens, give it a duration, mark what happened,
-      and compare planned vs actual for every day of the week.
+      4cus is a <strong>fully customisable table</strong> for everything you repeat:
+      the gym, the deep work, the 9am standup, the client call, the reading.
+      Put each one on the days it happens, give it a time, tick off what you
+      really did — and at the end of the week you finally know
+      <strong>where your hours went</strong>.
     </p>
     <div class="cta">
-      <a class="btn btn-primary" data-app-link href="#">Open the web app →</a>
-      <a class="btn btn-ghost" href="downloads.html">Get the desktop &amp; mobile apps</a>
+      <a class="btn btn-primary" data-app-link href="#">Start using 4cus →</a>
+      <a class="btn btn-ghost" href="downloads.html">Get it on phone or desktop</a>
     </div>
-    <div class="stats">
-      <div><b>4</b>platforms: web, Android, iOS, Windows</div>
-      <div><b>0</b>passwords — your email is the key</div>
-      <div><b>Free</b>forever, with an optional VIP key</div>
-      <div><b>EN / FR</b>interface</div>
+    <div class="proof">
+      <span><b>Free</b> forever</span>
+      <span><b>No</b> password to remember</span>
+      <span><b>4</b> platforms: web, Android, iOS, Windows</span>
+      <span><b>English</b> &amp; French</span>
     </div>
 
     <div class="mock">
       <div class="mock-bar">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="t">4cus — Weekly · Sep 21 → Sep 27 2026</span>
+        <span class="t">4cus — your week, side by side</span>
       </div>
       <div class="mock-table">
         <table class="grid">
           <thead>
-            <tr><th>Task</th><th>Mon 21</th><th>Tue 22</th><th>Wed 23</th><th>Thu 24</th><th>Fri 25</th><th>Sat 26</th><th>Sun 27</th></tr>
+            <tr><th>Routine</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
           </thead>
           <tbody>
             <tr><td class="name">Deep work</td><td class="day">2 h</td><td class="day">3 h</td><td class="day">2 h</td><td class="day">—</td><td class="day">1 h</td><td class="day">—</td><td class="day">—</td></tr>
             <tr><td class="name">Gym</td><td class="day">45 m</td><td class="day">45 m</td><td class="day">—</td><td class="day">45 m</td><td class="day">—</td><td class="day">1 h</td><td class="day">—</td></tr>
-            <tr><td class="name">Reading</td><td class="day"><span class="pill p-done">done</span></td><td class="day"><span class="pill p-done">done</span></td><td class="day"><span class="pill p-prog">in progress</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-canc">cancelled</span></td><td class="day"><span class="pill p-idle">idle</span></td></tr>
-            <tr><td class="name">Client call</td><td class="day"><span class="pill p-none">none</span></td><td class="day"><span class="pill p-none">none</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-none">none</span></td><td class="day"><span class="pill p-none">none</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-idle">idle</span></td></tr>
-            <tr><td class="name">Typing practice</td><td class="day">20 m</td><td class="day">—</td><td class="day">20 m</td><td class="day">20 m</td><td class="day">—</td><td class="day">30 m</td><td class="day">—</td></tr>
-            <tr><td class="name">Weekly review</td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-none">none</span></td><td class="day"><span class="pill p-idle">idle</span></td><td class="day"><span class="pill p-idle">idle</span></td></tr>
+            <tr><td class="name">Reading</td><td class="day"><span class="pill p-done">done</span></td><td class="day"><span class="pill p-done">done</span></td><td class="day"><span class="pill p-prog">in progress</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-canc">skipped</span></td><td class="day"><span class="pill p-idle">rest</span></td></tr>
+            <tr><td class="name">Client call</td><td class="day"><span class="pill p-none">planned</span></td><td class="day"><span class="pill p-none">planned</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-none">planned</span></td><td class="day"><span class="pill p-none">planned</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-idle">rest</span></td></tr>
+            <tr><td class="name">Weekly review</td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-none">planned</span></td><td class="day"><span class="pill p-idle">rest</span></td><td class="day"><span class="pill p-idle">rest</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -77,103 +101,224 @@
   </div>
 </section>
 
-<section id="problem" class="alt">
+<section id="why" class="alt">
   <div class="wrap">
-    <h2>Your tools make you pick a side</h2>
+    <p class="eyebrow">Why</p>
+    <h2>Most planning apps make you fit into their shape</h2>
     <p class="sec-intro">
-      Almost every planner answers half the question. The result is three tabs open
-      and still no answer to the only one that matters: <em>did I actually do what I
-      said I would on Tuesday?</em>
+      A to-do list gives you one long column. A calendar gives you empty boxes.
+      A habit app gives you a streak you can lose. 4cus gives you a table and lets
+      <strong>you</strong> decide what the columns mean — then keeps the bookkeeping honest for you.
     </p>
     <div class="grid-3">
       <div class="card">
-        <div class="ico">📅</div>
-        <h3>A calendar knows <em>when</em></h3>
-        <p>It does not know how long something takes, whether you actually did it, or that "gym" is a 45-minute routine and not a 24-hour event.</p>
-      </div>
-      <div class="card">
-        <div class="ico">✅</div>
-        <h3>A to-do list knows <em>what</em></h3>
-        <p>Everything sits in one long column. "Wednesday" is a due date, not a place you can see your whole week at once.</p>
+        <div class="ico">🗂️</div>
+        <h3>See the whole week at once</h3>
+        <p>Routines down the side, days across the top. No scrolling, no guessing, no "was that Tuesday or Wednesday?"</p>
+        <div class="gain"><b>You get:</b> the shape of your week in a single glance, so overbooking is visible before it happens.</div>
       </div>
       <div class="card">
         <div class="ico">⏱️</div>
-        <h3>A time tracker is always late</h3>
-        <p>It tells you, weeks later, where the hours went. It never helps you decide where they should go tomorrow.</p>
+        <h3>Know where the time went</h3>
+        <p>Every cell carries an estimated time, and a live timer records what you actually did.</p>
+        <div class="gain"><b>You get:</b> planned vs done, per day and per task — the number that tells you if your week was realistic.</div>
+      </div>
+      <div class="card">
+        <div class="ico">🧩</div>
+        <h3>Change the rules, not the app</h3>
+        <p>Add a column, rename it, give it your own statuses. The same table then tracks habits, meetings or projects.</p>
+        <div class="gain"><b>You get:</b> a tool that fits your process instead of a process that fits the tool.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section id="uses">
   <div class="wrap">
-    <h2>How 4cus works</h2>
-    <p class="sec-intro">Three steps, and the grid fills itself in as you commit.</p>
-    <div class="steps">
-      <div class="step">
-        <h3>Add a routine</h3>
-        <p>Create the things you actually repeat — <em>gym 45 min</em>, <em>deep work 2 h</em>, <em>call mom</em>. They live in a pool. You are not committing to a day yet.</p>
+    <p class="eyebrow">What it's for</p>
+    <h2>One tool, four very different jobs</h2>
+    <p class="sec-intro">
+      The table stays the same. What changes is the columns you add — and that is
+      exactly why one app can cover your habits, your calendar, your task list and
+      your time.
+    </p>
+
+    <div class="usecase">
+      <div class="uc-text">
+        <div class="kicker">Habit tracking</div>
+        <h3>Consistency you can actually see</h3>
+        <p>
+          Most habit apps punish you with a broken streak the moment you miss a day.
+          4cus shows you the month as a grid of small dots: what you did, what you
+          skipped, what you simply never planned. A rest day is not a failure.
+        </p>
+        <ul>
+          <li><b>The whole month at a glance</b> — density and completion per day, no spreadsheet maths.</li>
+          <li><b>Statuses you choose</b> — done, in progress, skipped, or anything else you invent.</li>
+          <li><b>Durations on habits</b> — 45 minutes of training vs 10 minutes of stretching are different things.</li>
+        </ul>
+        <p><strong>What you get:</strong> a truthful picture of your consistency, without the guilt spiral.</p>
       </div>
-      <div class="step">
-        <h3>Place it on days</h3>
-        <p>Tap a day and pick a status. <span class="pill p-idle">idle</span> means "not this day", so the grid <em>is</em> your plan. Statuses are yours: none, in progress, done, cancelled.</p>
+      <figure class="uc-shot" style="margin:0">
+        <div class="screen" data-screen="month"></div>
+        <figcaption>The month view: every day, how much you planned and what is on.</figcaption>
+      </figure>
+    </div>
+
+    <div class="usecase flip">
+      <div class="uc-text">
+        <div class="kicker">Meetings &amp; schedule</div>
+        <h3>A week that looks like your week</h3>
+        <p>
+          Meetings are just rows with a time. Set "client call — Thursdays 4pm" once and
+          it sits in every Thursday cell until you change it. The grid becomes a real
+          schedule, not a list with due dates.
+        </p>
+        <ul>
+          <li><b>A schedule column with times</b> — click, pick, done.</li>
+          <li><b>Recurring slots without duplicating rows</b> — one routine, many days.</li>
+          <li><b>Google Calendar sync</b> — planned days become events, automatically, both ways.</li>
+        </ul>
+        <p><strong>What you get:</strong> one place that answers "when am I busy?" and "what is that meeting?" together.</p>
       </div>
-      <div class="step">
-        <h3>Run it, then compare</h3>
-        <p>Start a timer inside a cell and the day fills with real time. The analytics show planned vs done vs left, per task and per week.</p>
+      <figure class="uc-shot" style="margin:0">
+        <div class="screen" data-screen="week"></div>
+        <figcaption>The week view: time, status and notes in every cell that is planned.</figcaption>
+      </figure>
+    </div>
+
+    <div class="usecase">
+      <div class="uc-text">
+        <div class="kicker">Task management</div>
+        <h3>A task list that knows about days</h3>
+        <p>
+          A to-do list tells you what is outstanding. It does not tell you that three of
+          those things were planned for the same afternoon. In 4cus a task only exists
+          on the days you put it, so the list and the plan are the same object.
+        </p>
+        <ul>
+          <li><b>Statuses that drive everything</b> — nothing is "planned" while it sits idle.</li>
+          <li><b>Notes on any day</b> — write what happened while you are still in that day.</li>
+          <li><b>Search and filters</b> — including "only the days that have a note", which is how you find your evidence.</li>
+        </ul>
+        <p><strong>What you get:</strong> fewer stale tasks, because a task has to be scheduled to exist.</p>
       </div>
+      <figure class="uc-shot" style="margin:0">
+        <div class="screen" data-screen="day"></div>
+        <figcaption>The day view: totals up top, then one card per task with its time, status and note.</figcaption>
+      </figure>
+    </div>
+
+    <div class="usecase flip">
+      <div class="uc-text">
+        <div class="kicker">Time &amp; progress</div>
+        <h3>Find out what your week was really made of</h3>
+        <p>
+          This is the part other apps leave you guessing. 4cus compares the time you
+          planned with the time you spent, per day, per task, over the last eight
+          weeks — and shows what is still sitting undone.
+        </p>
+        <ul>
+          <li><b>Planned vs done vs left</b>, to the minute.</li>
+          <li><b>Weekly progress bars</b> — the trend, not just today.</li>
+          <li><b>Time per task</b> — discover the project that quietly ate your October.</li>
+        </ul>
+        <p><strong>What you get:</strong> evidence, so next week's plan is based on facts rather than optimism.</p>
+      </div>
+      <figure class="uc-shot" style="margin:0">
+        <div class="screen" data-screen="stats"></div>
+        <figcaption>The analytics view: eight weeks of progress, status mix and time per task.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<section id="features" class="alt">
+<section id="custom" class="alt">
   <div class="wrap">
-    <h2>What you get</h2>
-    <p class="sec-intro">The parts that are tedious to build and annoying to live without.</p>
-    <div class="grid-3">
-      <div class="card"><div class="ico">🗓️</div><h3>Weekly, Daily and Monthly views</h3><p>The same data three ways: the whole week as a grid, one day in detail, or the month as a heat map of load.</p></div>
-      <div class="card"><div class="ico">🧭</div><h3>Status-driven scheduling</h3><p><span class="pill p-idle">idle</span> unassigns a day. Nothing is double-booked by accident, and the grid is the single source of truth.</p></div>
-      <div class="card"><div class="ico">⏲️</div><h3>Per-cell durations and timers</h3><p>Estimate once, then run a live countdown on the exact day-cell you are working on. Paused and resumed included.</p></div>
-      <div class="card"><div class="ico">📊</div><h3>Planned vs actual time</h3><p>Total, done, in progress, elapsed and left — per day, per task, over the last eight weeks. This is the part no one else does well.</p></div>
-      <div class="card"><div class="ico">🔔</div><h3>Reminders that understand routines</h3><p>"3 minutes", "2 hours", "1 day", "1 week" before your <em>next</em> occurrence — not a static due date that fires once.</p></div>
-      <div class="card"><div class="ico">📝</div><h3>Notes on any cell</h3><p>A rich editor per day-cell, so "what did I actually do in that session" lives next to the time it took.</p></div>
-      <div class="card"><div class="ico">🧩</div><h3>Your own columns</h3><p>Statuses, durations, dates, tags, free text, timers, schedules, reminders, checkboxes. Reshape the grid around your own process.</p></div>
-      <div class="card"><div class="ico">🔄</div><h3>Google Calendar sync</h3><p>Scheduled days become calendar events automatically, both ways. Unlocks with a VIP key.</p></div>
-      <div class="card"><div class="ico">📱</div><h3>Four platforms, one dataset</h3><p>Web, Android, iOS and Windows with instant sync and an offline queue: edit on the train, it syncs when you land.</p></div>
-      <div class="card"><div class="ico">🔑</div><h3>No password to forget</h3><p>Your email address is the key. Same address on every device means the same workspace, everywhere.</p></div>
-      <div class="card"><div class="ico">🎨</div><h3>Themes, including your own photo</h3><p>Dark, light, or a custom theme with a background image from your device. Surfaces frost so text stays readable.</p></div>
-      <div class="card"><div class="ico">🌍</div><h3>English and French</h3><p>The interface follows your device language, including dates and times.</p></div>
+    <p class="eyebrow">The point</p>
+    <h2>A table you reshape, not a template you accept</h2>
+    <p class="sec-intro">
+      Columns are yours to define: statuses, durations, times, notes, tags, dates,
+      countdowns, reminders, checkboxes. Pick the ones your job needs and you have
+      built the tool that fits it.
+    </p>
+    <table class="cmp">
+      <thead>
+        <tr><th>If you want to…</th><th>Columns you add</th><th>What you get</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Track habits</td><td class="cols">status · duration</td><td class="gain">Consistency you can see, without streaks</td></tr>
+        <tr><td>Plan meetings</td><td class="cols">schedule · status · note</td><td class="gain">A weekly schedule with the context attached</td></tr>
+        <tr><td>Run projects</td><td class="cols">status · tags · date</td><td class="gain">Deadlines and owners next to the work</td></tr>
+        <tr><td>Study or revise</td><td class="cols">status · note · timer</td><td class="gain">Proof of what you covered, not just a checkbox</td></tr>
+        <tr><td>Bill your time</td><td class="cols">duration · tags · status</td><td class="gain">Planned vs billed, per client</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="views">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Three steps, then it runs itself</h2>
+    <div class="steps" style="margin-top:30px">
+      <div class="step">
+        <h3>Add what you repeat</h3>
+        <p>Create your routines with an estimated time — <em>gym 45 min</em>, <em>deep work 2 h</em>. They wait in a pool until you schedule them.</p>
+      </div>
+      <div class="step">
+        <h3>Put them on days</h3>
+        <p>Click a day, choose a status. That is your plan — the grid fills in as you commit, and only on the days you meant it.</p>
+      </div>
+      <div class="step">
+        <h3>Run it, then look back</h3>
+        <p>Start a timer in the cell you are working on. The day records real time, and the analytics tell you whether the plan was realistic.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="platforms">
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Also included</p>
+    <h2>The rest of it</h2>
+    <div class="grid-3" style="margin-top:26px">
+      <div class="card"><div class="ico">🔔</div><h3>Reminders that fit routines</h3><p>"3 minutes", "2 hours", "1 day" before your <em>next</em> occurrence — so a weekly routine reminds you every week, not once.</p></div>
+      <div class="card"><div class="ico">📱</div><h3>Your phone, properly</h3><p>On a phone the week collapses to one status dot per day, so all seven days fit without scrolling. Tap a dot to change it.</p></div>
+      <div class="card"><div class="ico">🔄</div><h3>Everywhere, instantly</h3><p>Change something on your laptop, see it on your phone straight away. Offline changes queue and sync when you reconnect.</p></div>
+      <div class="card"><div class="ico">🔑</div><h3>No password</h3><p>Your email is the key. Same address on every device means the same workspace — nothing to forget, nothing to reset.</p></div>
+      <div class="card"><div class="ico">🎨</div><h3>Make it yours</h3><p>Dark, light, or your own photo as the background. Reminders that fire on the web, Android and Windows.</p></div>
+      <div class="card"><div class="ico">🌍</div><h3>English and French</h3><p>The interface follows your device language, dates and times included.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="wrap">
     <h2>Get 4cus</h2>
     <p class="sec-intro">
-      The web app needs no install. Every desktop and mobile build is listed on the
-      downloads page, and <strong>every published version stays available</strong> —
-      newest first, with what changed in each.
+      Start on the web with nothing to install. Prefer an app? Every published version
+      stays available on the downloads page, with what changed in each.
     </p>
     <div class="grid-4">
       <div class="card plat">
         <span class="badge">Web</span>
-        <p>Nothing to install. Works in any browser, and the fastest way to try 4cus.</p>
+        <p>Nothing to install, updates itself. The fastest way to see whether 4cus fits you.</p>
         <a class="btn btn-primary btn-sm" data-app-link href="#">Open the app</a>
       </div>
       <div class="card plat">
         <span class="badge">Android</span>
-        <p>Install the APK directly. Sideloaded, no store needed.</p>
+        <p>One APK, installed directly on your phone.</p>
         <a class="btn btn-ghost btn-sm" href="downloads.html">Get the APK</a>
       </div>
       <div class="card plat">
         <span class="badge">Windows</span>
-        <p>A portable build. Unzip the folder and run the executable.</p>
+        <p>A portable build: unzip, run the executable, done.</p>
         <a class="btn btn-ghost btn-sm" href="downloads.html">Get the EXE</a>
       </div>
       <div class="card plat">
         <span class="badge">iOS</span>
-        <p>Built for iPhone, published unsigned. Installing it needs an Apple Developer signature.</p>
+        <p>Built for iPhone, published unsigned — installing needs an Apple signature.</p>
         <a class="btn btn-ghost btn-sm" href="downloads.html">Get the IPA</a>
       </div>
     </div>
@@ -183,46 +328,38 @@
 <section class="alt">
   <div class="wrap">
     <h2>What's new</h2>
-    <p class="sec-intro">Straight from the release notes, so this page never goes stale.</p>
+    <p class="sec-intro">Straight from the release notes, so this is never out of date.</p>
     <div data-latest-notes><p class="loading">Loading the latest release…</p></div>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap">
-    <h2>Questions, answered</h2>
+    <h2>Questions</h2>
     <div class="faq" style="margin-top:26px">
       <details open>
-        <summary>Is 4cus free?</summary>
-        <div class="body">Yes. 4cus is free to use on every platform. An optional VIP key unlocks Google Calendar sync and a few extras — the core tracker never sits behind a paywall.</div>
+        <summary>Is it really free?</summary>
+        <div class="body">Yes, on every platform. An optional VIP key unlocks Google Calendar sync — the table itself is never behind a paywall.</div>
       </details>
       <details>
         <summary>Do I need an account or a password?</summary>
-        <div class="body">No password. You type an email address and your workspace is created instantly. Use the same address on every device and you get the same data everywhere — so remember it exactly.</div>
+        <div class="body">No password. You type an email and your workspace exists immediately. Use the same address on every device to get the same data everywhere.</div>
       </details>
       <details>
-        <summary>Where is my data stored?</summary>
-        <div class="body">In a Supabase project, with row level security so a workspace can only ever read its own rows. A local copy is kept on the device, which is also what makes offline editing work.</div>
+        <summary>What happens to a day I miss?</summary>
+        <div class="body">Nothing dramatic. The day stays as you left it — planned, skipped or cancelled — and you can decide later whether to move it. There is no streak to break.</div>
       </details>
       <details>
-        <summary>Does it work offline?</summary>
-        <div class="body">Yes. Changes are queued locally and pushed when the connection returns. You will see the sync status in the app when something is pending.</div>
+        <summary>Can my partner or my team use it?</summary>
+        <div class="body">Not yet: 4cus is currently a single-person workspace. Sharing and collaboration are on the list, not in the build.</div>
       </details>
       <details>
-        <summary>Can I install it on my iPhone?</summary>
-        <div class="body">The iOS build is published unsigned, so iOS will not install it on a real device without an Apple Developer signature. In practice, use the web app or the Android build on a phone today.</div>
+        <summary>Can I get it on my iPhone?</summary>
+        <div class="body">The iOS build is unsigned, so iOS will not install it on a real device without an Apple Developer signature ($99/year). On a phone today, use the web app or the Android build.</div>
       </details>
       <details>
-        <summary>Is there an app store version?</summary>
-        <div class="body">Not yet. The Android APK is the current install path; a store release is on the list of things to do.</div>
-      </details>
-      <details>
-        <summary>Can I import from Notion, Todoist or a spreadsheet?</summary>
-        <div class="body">Not yet. It is a clearly wanted feature — for now, the fastest route is to recreate your routines as tasks with durations; the grid does the rest.</div>
-      </details>
-      <details>
-        <summary>What is the "idle" status for?</summary>
-        <div class="body">It means "not scheduled this day". That is what lets a single recurring task live in one row while only appearing on the days you actually committed to — the grid stays honest instead of pretending a task is planned every day.</div>
+        <summary>Can I move my data in from another app?</summary>
+        <div class="body">Import is not built yet. The fastest route is to recreate your routines as rows with a time — once the columns are there, the table does the rest.</div>
       </details>
     </div>
   </div>
@@ -232,7 +369,7 @@
   <div class="wrap row">
     <div>
       <div class="brand" style="margin-bottom:6px"><span class="mark">4</span> 4cus</div>
-      <div>Free routine tracker. Built in the open.</div>
+      <div>A free, customisable table for the things you repeat.</div>
     </div>
     <nav>
       <a href="index.html">Home</a>
