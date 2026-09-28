@@ -456,8 +456,10 @@ window.S4CUS = {
       function () { setTarget('<span class="t">2 h</span>'); setOthers(); planV.textContent = '2h'; cap.innerHTML = c.caps[0]; },
       function () { setTarget('<span class="pill p-none">' + esc(c.side.planned.toLowerCase()) + '</span>'); meter.style.width = '12%'; planV.textContent = '2h'; cap.innerHTML = c.caps[1]; },
       function () { setTarget(pill('prog', c.chips[0] === 'Weekly' ? 'in progress' : 'en cours') + ' <span class="demo-celltime run" data-d="t">0:00</span>'); cap.innerHTML = c.caps[2]; },
-      function () { var t = host.querySelector('[data-d="t"]'); if (t) t.textContent = '0:45'; meter.style.width = '38%'; cap.innerHTML = c.caps[3]; },
-      function () { setTarget(pill('done', c.side.done.toLowerCase()) + ' <span class="demo-celltime">0:45</span>'); meter.style.width = '38%'; meterWrap.classList.add('done'); cap.innerHTML = c.caps[4]; },
+      // Still running: same caption, the clock moves.
+      function () { var t = host.querySelector('[data-d="t"]'); if (t) t.textContent = '0:45'; meter.style.width = '38%'; cap.innerHTML = c.caps[2]; },
+      function () { setTarget(pill('done', c.side.done.toLowerCase()) + ' <span class="demo-celltime">0:45</span>'); meterWrap.classList.add('done'); cap.innerHTML = c.caps[3]; },
+      function () { meter.style.width = '38%'; pctV.textContent = '53%'; cap.innerHTML = c.caps[4]; },
       function () { pctV.textContent = '68%'; meter.style.width = '68%'; [22, 34, 41, 55, 68].forEach(function (h, i) { bars[i].style.height = h + '%'; }); cap.innerHTML = c.caps[5]; },
       function () { cap.innerHTML = c.caps[6]; }
     ];
