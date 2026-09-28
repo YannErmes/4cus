@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Téléchargements — 4cus</title>
-<meta name="description" content="Toutes les versions publiées de 4cus : web, APK Android, EXE Windows et IPA iOS. Historique complet avec les changements de chaque version.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234F6BFF'/><text x='16' y='23' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>4</text></svg>">
+<meta name="description" content="Toutes les versions publiées de 4cus : web, APK Android, EXE Windows et IPA iOS. Choisissez une version et téléchargez-la.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233b54e8'/><text x='16' y='23' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>4</text></svg>">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -16,8 +16,8 @@
     <nav>
       <a href="fr.html#pourquoi">Pourquoi</a>
       <a href="fr.html#usages">Usages</a>
+      <a href="fr.html#gcal">Google Agenda</a>
       <a href="fr.html#custom">Personnaliser</a>
-      <a href="downloads-fr.html">Téléchargements</a>
       <a href="fr.html#faq">Questions</a>
       <span class="lang">
         <a href="downloads.html">EN</a>
@@ -28,59 +28,32 @@
   </div>
 </header>
 
-<section class="hero" style="padding-bottom:34px">
+<section class="hero" style="padding:56px 0 30px">
   <div class="wrap">
-    <h1 style="max-width:24ch">Téléchargements et <em>historique</em></h1>
-    <p class="lead">
-      Rien n'est écrasé. Chaque version publiée reste téléchargeable ici, de la plus
-      récente à la plus ancienne, avec les changements de chaque version. Choisissez
-      une version, ou prenez la dernière — c'est la même application, synchronisée
-      sur le même espace de travail.
+    <h1 style="max-width:22ch">Téléchargements</h1>
+    <p class="lead" style="margin-bottom:20px">
+      Toutes les versions publiées, de la plus récente à la plus ancienne. Rien n'est
+      écrasé : vous pouvez toujours revenir à la version que vous utilisiez.
     </p>
     <div class="cta">
-      <a class="btn btn-primary" data-app-link href="#">Ou utilisez simplement la version web →</a>
+      <a class="btn btn-primary" data-app-link href="#">Ou ouvrez la version web →</a>
     </div>
   </div>
 </section>
 
-<section class="alt">
+<section style="padding-top:34px">
   <div class="wrap">
-    <h2>Avant d'installer</h2>
-    <div class="grid-4" style="margin-top:22px">
-      <div class="card">
-        <div class="ico">🌐</div>
-        <h3>Web</h3>
-        <p>Rien à installer, rien à signer. Le moyen le plus rapide d'entrer, et les mises à jour sont automatiques. Le <em>zip web</em> sert uniquement à faire tourner l'application hors ligne depuis un dossier local.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🤖</div>
-        <h3>Android</h3>
-        <p>Téléchargez l'APK, autorisez « installer depuis une source inconnue » pour votre navigateur, puis ouvrez-le. Android peut demander de désinstaller une version plus ancienne si une version portant le même numéro est installée.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🪟</div>
-        <h3>Windows</h3>
-        <p>Décompressez <em>le dossier entier</em> — l'exécutable a besoin des DLL à côté de lui — puis lancez <span class="mono">4cus.exe</span>. Rien n'est installé au niveau système.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🍎</div>
-        <h3>iOS</h3>
-        <p>Publié <strong>non signé</strong>. iOS refuse d'installer une application non signée sur un vrai appareil ; il faut une signature développeur Apple, à 99 $/an. Utilisez la version web sur votre téléphone aujourd'hui.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>Toutes les versions</h2>
-    <p class="sec-intro">
-      Lu directement dans la liste des versions du projet : cette page n'est jamais
-      périmée et une nouvelle version y apparaît toute seule.
-    </p>
-    <div data-releases="50">
+    <div data-releases="50" data-notes="off">
       <p class="loading">Chargement des versions…</p>
     </div>
+    <p class="empty" style="margin-top:18px">
+      Android est un APK · Windows est un zip — décompressez tout le dossier, puis lancez
+      <span class="mono">4cus.exe</span> · iOS est publié non signé · la version web ne demande aucune installation.
+    </p>
+    <p class="empty">
+      Un souci avec une version, ou une fonctionnalité que vous souhaitez ? Écrivez à
+      <a href="mailto:ermes1643@gmail.com">ermes1643@gmail.com</a>.
+    </p>
   </div>
 </section>
 
@@ -88,13 +61,14 @@
   <div class="wrap row">
     <div>
       <div class="brand" style="margin-bottom:6px"><span class="mark">4</span> 4cus</div>
-      <div>Suivi de routines, construit à ciel ouvert.</div>
+      <div>Construit à ciel ouvert.</div>
     </div>
     <nav>
       <a href="fr.html">Accueil</a>
       <a href="downloads-fr.html">Téléchargements</a>
       <a href="downloads.html">English</a>
       <a href="https://github.com/YannErmes/timetraker/releases" rel="noopener">Toutes les versions sur GitHub</a>
+      <a href="mailto:ermes1643@gmail.com">Support</a>
       <a data-app-link href="#">Ouvrir l'application</a>
     </nav>
   </div>

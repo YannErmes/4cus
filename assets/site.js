@@ -129,7 +129,7 @@ window.S4CUS = {
     }).join('');
   }
 
-  function releaseCard(r, isLatest) {
+  function releaseCard(r, isLatest, showNotes) {
     var ver = (r.name || r.tag_name || '').trim() || r.tag_name;
     return '<article class="rel">' +
       '<div class="rel-head">' +
@@ -139,12 +139,13 @@ window.S4CUS = {
         '<time datetime="' + esc(r.published_at || '') + '">' + esc(fmtDate(r.published_at)) + '</time>' +
         '<div class="dls">' + assetLinks(r) + '</div>' +
       '</div>' +
-      '<div class="rel-body">' + md(r.body) + '</div>' +
+      (showNotes ? '<div class="rel-body">' + md(r.body) + '</div>' : '') +
     '</article>';
   }
 
   function render(el, opts) {
     opts = opts || {};
+    var showNotes = opts.notes !== false;
     el.innerHTML = '<p class="loading">Loading versions…</p>';
     fetch(CFG.releasesApi, { headers: { Accept: 'application/vnd.github+json' } })
       .then(function (res) {
@@ -158,7 +159,7 @@ window.S4CUS = {
           return;
         }
         var limit = opts.limit || 50;
-        var html = list.slice(0, limit).map(function (r, i) { return releaseCard(r, i === 0); }).join('');
+        var html = list.slice(0, limit).map(function (r, i) { return releaseCard(r, i === 0, showNotes); }).join('');
         if (list.length > limit) {
           html += '<p class="empty">Showing the ' + limit + ' most recent versions. <a href="https://github.com/' + esc(CFG.repo) + '/releases">See all on GitHub</a>.</p>';
         }
@@ -519,7 +520,13 @@ window.S4CUS = {
 
   function boot() {
     var rel = document.querySelector('[data-releases]');
-    if (rel) render(rel, { limit: parseInt(rel.getAttribute('data-releases'), 10) || 50 });
+    if (rel) {
+      render(rel, {
+        limit: parseInt(rel.getAttribute('data-releases'), 10) || 50,
+        // The downloads page is buttons only; the notes live on the home page.
+        notes: rel.getAttribute('data-notes') !== 'off'
+      });
+    }
 
     var whats = document.querySelector('[data-latest-notes]');
     if (whats) {

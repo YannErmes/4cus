@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Downloads — 4cus</title>
-<meta name="description" content="Every published build of 4cus: web, Android APK, Windows EXE and iOS IPA. Full version history with the changes in each release.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234F6BFF'/><text x='16' y='23' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>4</text></svg>">
+<meta name="description" content="Every published build of 4cus: web, Android APK, Windows EXE and iOS IPA. Pick a version and download it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233b54e8'/><text x='16' y='23' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>4</text></svg>">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -15,9 +15,9 @@
     <a class="brand" href="index.html"><span class="mark">4</span> 4cus</a>
     <nav>
       <a href="index.html#why">Why</a>
-      <a href="index.html#uses">What it's for</a>
+      <a href="index.html#uses">What's for</a>
+      <a href="index.html#gcal">Google Calendar</a>
       <a href="index.html#custom">Customise</a>
-      <a href="downloads.html">Downloads</a>
       <a href="index.html#faq">FAQ</a>
       <span class="lang">
         <a class="active" href="downloads.html">EN</a>
@@ -28,58 +28,32 @@
   </div>
 </header>
 
-<section class="hero" style="padding-bottom:34px">
+<section class="hero" style="padding:56px 0 30px">
   <div class="wrap">
-    <h1 style="max-width:22ch">Downloads &amp; <em>version history</em></h1>
-    <p class="lead">
-      Nothing is overwritten. Every published build stays downloadable here, newest
-      first, with the changes in each release. Pick a version, or take the latest —
-      they are all the same app, synced to the same workspace.
+    <h1 style="max-width:20ch">Downloads</h1>
+    <p class="lead" style="margin-bottom:20px">
+      Every published version, newest first. Nothing is overwritten, so you can always
+      go back to the build you were using.
     </p>
     <div class="cta">
-      <a class="btn btn-primary" data-app-link href="#">Or just use the web app →</a>
+      <a class="btn btn-primary" data-app-link href="#">Or open the web app →</a>
     </div>
   </div>
 </section>
 
-<section class="alt">
+<section style="padding-top:34px">
   <div class="wrap">
-    <h2>Before you install</h2>
-    <div class="grid-4" style="margin-top:22px">
-      <div class="card">
-        <div class="ico">🌐</div>
-        <h3>Web</h3>
-        <p>Nothing to install, nothing to sign. The fastest way in, and it updates itself. The <em>web zip</em> is only for running it offline from a local folder.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🤖</div>
-        <h3>Android</h3>
-        <p>Download the APK, allow "install from unknown sources" for your browser, and open it. Android may ask you to uninstall an older build first if a version with the same number is installed.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🪟</div>
-        <h3>Windows</h3>
-        <p>Unzip <em>the whole folder</em> — the executable needs the DLLs next to it — then run <span class="mono">4cus.exe</span>. Nothing is installed system-wide.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🍎</div>
-        <h3>iOS</h3>
-        <p>Published <strong>unsigned</strong>. iOS refuses to install an unsigned app on a real device; it needs an Apple Developer signature, which costs $99/year. Use the web app on your phone today.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>All versions</h2>
-    <p class="sec-intro">
-      Read straight from the project's release list, so this page is never out of date
-      and a new version shows up here by itself.
-    </p>
-    <div data-releases="50">
+    <div data-releases="50" data-notes="off">
       <p class="loading">Loading versions…</p>
     </div>
+    <p class="empty" style="margin-top:18px">
+      Android is an APK · Windows is a zip — unzip the whole folder, then run
+      <span class="mono">4cus.exe</span> · iOS is published unsigned · the web app needs no install at all.
+    </p>
+    <p class="empty">
+      Trouble with a build, or a feature you want? Write to
+      <a href="mailto:ermes1643@gmail.com">ermes1643@gmail.com</a>.
+    </p>
   </div>
 </section>
 
@@ -87,13 +61,14 @@
   <div class="wrap row">
     <div>
       <div class="brand" style="margin-bottom:6px"><span class="mark">4</span> 4cus</div>
-      <div>Routine tracker, built in the open.</div>
+      <div>Built in the open.</div>
     </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="downloads.html">Downloads</a>
       <a href="downloads-fr.html">Français</a>
       <a href="https://github.com/YannErmes/timetraker/releases" rel="noopener">All releases on GitHub</a>
+      <a href="mailto:ermes1643@gmail.com">Support</a>
       <a data-app-link href="#">Open the app</a>
     </nav>
   </div>
